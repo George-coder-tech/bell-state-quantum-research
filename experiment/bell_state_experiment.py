@@ -1,21 +1,20 @@
-from qiskit import QuantumCircuit, Aer, execute
-from qiskit.visualization import plot_histogram
+from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
 
-# Step 1: Create 2-qubit circuit
+# Create 2-qubit circuit
 qc = QuantumCircuit(2, 2)
 
-# Step 2: Create Bell state
+# Bell state
 qc.h(0)
 qc.cx(0, 1)
 
-# Step 3: Measurement
-qc.measure([0,1], [0,1])
+# Measurement
+qc.measure([0, 1], [0, 1])
 
-# Step 4: Run simulator
-simulator = Aer.get_backend('qasm_simulator')
-job = execute(qc, simulator, shots=1024)
-result = job.result()
+# Simulator
+simulator = AerSimulator()
+result = simulator.run(qc, shots=1024).result()
 
 counts = result.get_counts()
 
-print("Simulation results:", counts)
+print("Results:", counts)
