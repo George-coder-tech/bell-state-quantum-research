@@ -1,6 +1,7 @@
 # Bell-State Quantum Analysis
 
  1. Theoretical Background
+
 A Bell state is a maximally entangled quantum state of two qubits.  
 For the |Φ⁺⟩ state, the expected result is:
 
@@ -13,6 +14,7 @@ This reflects perfect quantum entanglement.
 ---
 
  2. Simulation Results
+
 The quantum circuit was executed using a Qiskit simulator with 1024 shots.
 
 Observed results:
@@ -24,6 +26,7 @@ This matches theoretical predictions for an ideal, noise-free quantum system.
 ---
 
 3. Interpretation
+
 The results confirm that:
 
 - The Hadamard gate correctly created superposition
@@ -35,6 +38,7 @@ This verifies correct implementation of a Bell state.
 ---
 
  4. Limitations
+
 The simulation assumes a perfect quantum system and does not include:
 
 - Decoherence
@@ -45,6 +49,7 @@ Therefore, real quantum hardware is expected to produce deviations.
 
 ---
  5. Future Work
+
 The next phase of this project will involve:
 
 - Running the same circuit on real IBM Quantum hardware
