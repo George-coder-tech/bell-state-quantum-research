@@ -14,3 +14,8 @@ confirming successful Bell-state entanglement in a noise-free environment.
 
 # Future Work
 This experiment will be extended to real IBM Quantum hardware to analyze the effects of noise and decoherence.
+# Conclusion
+
+This experiment successfully demonstrates Bell-state entanglement using quantum simulation. The results confirm that quantum circuits can produce correlated outcomes consistent with theoretical predictions.
+
+The slight deviations observed are attributed to statistical sampling effects in finite measurements. Future work will extend this study to real quantum hardware to analyze the impact of noise and decoherence.
