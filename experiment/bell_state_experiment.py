@@ -1,24 +1,25 @@
 from qiskit import QuantumCircuit
 from qiskit_aer import AerSimulator
+from qiskit.visualization import plot_histogram
+import matplotlib.pyplot as plt
 
-# Create 2-qubit circuit
+# -----------------------
+# IDEAL SIMULATION
+# -----------------------
 qc = QuantumCircuit(2, 2)
-
-# Bell state
 qc.h(0)
 qc.cx(0, 1)
-
-# Measurement
 qc.measure([0, 1], [0, 1])
 
-# Simulator
 simulator = AerSimulator()
 result = simulator.run(qc, shots=1024).result()
-
 counts_ideal = result.get_counts()
 
 print("Ideal Results:", counts_ideal)
 
+# -----------------------
+# NOISY SIMULATION
+# -----------------------
 from qiskit_aer.noise import NoiseModel, depolarizing_error
 
 noise_model = NoiseModel()
@@ -31,9 +32,21 @@ counts_noisy = result_noisy.get_counts()
 
 print("Noisy Results:", counts_noisy)
 
-from qiskit.visualization import plot_histogram
-import matplotlib.pyplot as plt
+# -----------------------
+# PROBABILITY ANALYSIS
+# -----------------------
+total = sum(counts_ideal.values())
+print("\nProbability for Ideal Simulation")
+for state, count in counts_ideal.items():
+    print(state, count/total)
+
+total = sum(counts_noisy.values())
+print("\nProbability for Noisy Simulation")
+for state, count in counts_noisy.items():
+    print(state, count/total)
+
+# -----------------------
+# PLOT COMPARISON
+# -----------------------
 plt.show()
 plot_histogram([counts_ideal, counts_noisy], legend=["Ideal", "Noisy"])
-
-
