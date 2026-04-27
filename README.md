@@ -9,8 +9,8 @@ A two-qubit quantum circuit was constructed using a Hadamard gate followed by a 
 Measurements were performed using 1024 shots using Qiskit.
 
 # Results
-The simulator produced an approximately equal probability distribution between |00⟩ and |11⟩ states,
-confirming successful Bell-state entanglement in a noise-free environment.
+The ideal simulator produced an approximately equal probability distribution between |00⟩ and |11⟩ states, confirming successful Bell-state entanglement.  
+When noise was introduced, small deviations in the probability distribution were observed, demonstrating the impact of decoherence on quantum correlations.
 
 # Future Work
 This experiment will be extended to real IBM Quantum hardware to analyze the effects of noise and decoherence.
